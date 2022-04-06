@@ -1,0 +1,19 @@
+{
+  "name": "documentation",
+  "version": "0.0.1",
+  "description": "Documentation des applis unieditions",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "https://github.com/unieditions/sandbox/documentation",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
