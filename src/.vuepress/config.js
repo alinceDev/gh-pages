@@ -1,6 +1,7 @@
 const { description } = require('../../package')
 
 module.exports = {
+  base: "/gh-pages/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -27,19 +28,37 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
+    repo: 'https://github.com/alinceDev/gh-pages',
+    docsDir: 'src',
+    repoLabel: "Contribuer!",
+    editLinks: true,
+    editLinkText: "Modifier cette page",
+    lastUpdated: true,
+    logo: "/assets/logo.png",
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Général',
+        link: '/main/',
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'Mercipourlinfo',
+        link: '/mpi/'
+      },
+      {
+        text: 'Santemag',
+        link: '/sam/'
+      },
+      {
+        text: 'Parents',
+        link: '/parents/'
+      },
+      {
+        text: 'Momes',
+        link: '/momes/'
+      },
+      {
+        text: 'BO',
+        link: '/bo/'
       },
       {
         text: 'VuePress',
@@ -47,14 +66,35 @@ module.exports = {
       }
     ],
     sidebar: {
-      '/guide/': [
+      '/main/': [
+        {
+          title: 'Installation',
+          collapsable: false,
+          children: [
+            {
+              title: 'Installation back',
+              path: 'install/back',
+            },
+            {
+              title: 'Installation front',
+              path: 'install/front',
+            },
+          ]
+        },
+        {
+          title: 'Architecture',
+          collapsable: false,
+        },
+        {
+          title: 'Documentation',
+          collapsable: false,
+          path: "documentation",
+        }
+      ],
+      '/mpi/': [
         {
           title: 'Guide',
           collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
         }
       ],
     }
@@ -66,5 +106,15 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-  ]
+  ],
+  markdown: {
+    lineNumbers: true,
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "@assets": "public/assets",
+      },
+    },
+  }
 }
